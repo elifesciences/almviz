@@ -638,14 +638,32 @@ function AlmViz(options) {
       .exit()
       .remove();
 
+    // Clear out any prior registration of the dataset with D3 layer, as when we
+    // go from daily to monthly there can be up to 2 data points which have the
+    // same date, and thus are not cleared out in the normal way. For reasons
+    // I don't understand, the D3 layer code modifies those two elements to some
+    // extent (colour, height) but does not change the x axis position properly.
+    // The code here addresses this problem by unsetting the data array, then
+    // deleting the unassociated elements (which is therefore all of them), so
+    // forcing D3 to regenerate the complete element set each time.
+    viz.bars.selectAll(".bar")
+      .data([])
+      .exit()
+      .remove();
+
+    // Make a selection of the bars and associated the filtered data set with
+    // them.
     bars = viz.bars.selectAll(".bar")
       .data(filteredLevelData, dataKeyFunc);
 
-    // delete the visible bars from the DOM
+    // delete any unassociated bars (NB with the delete code above, this should
+    // have nothing to do, but left like this for the moment.)
     bars
       .exit()
       .remove();
 
+    // For each bar, append a rect element and set class, height, width, x and y
+    // The height is initially 0 because we transition it to its proper value.
     bars
       .enter()
       .append("rect")
@@ -655,13 +673,16 @@ function AlmViz(options) {
       .attr("y", viz.height)
       .attr("class", barClasses);
 
-    // TODO: these transitions could use a little work
+    // A transition which changes the height and Ypos of the bar so it appears
+    // to grow from the bottom upwards.
     bars.transition()
       .duration(1000)
       .attr("width", barWidth)
       .attr("y", barYPos)
       .attr("height", barHeight);
 
+    // A transition which - very quickly - makes the bars shrink to 0-height
+    // when the dataset is changed - ie when a new dataset is loaded.
     bars
       .exit().transition()
       .attr("y", viz.height)
