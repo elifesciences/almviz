@@ -1,126 +1,129 @@
-body {
-    font-family: sans-serif;
-    width: 800px;
-}
-
 .alm {
-    font-size: 11pt;
-	font-family: sans-serif;
-	margin-bottom: 15px;
+  font-size: 1em;
+
+  margin-bottom: 15px;
 }
 
 .title {
-    font-size: 1.5em;
-    color: #789aa1;
-    text-decoration: underline;
+  font-size: 1.5em;
+  color: #789aa1;
+  text-decoration: underline;
 }
 
 .alm-chart-area {
-    font-size: 11px;
+  font-family: 'Avenir LT W01 35 Light', 'Avenir LT 35 Light', Helvetica, Arial, Verdana, sans-serif;;
+  font-size: 11px;
+  float: left;
+  width: 75%;
 }
 
+.axis text {
+  font-size: 10px;
+}
 .axis line,
 .axis path {
-    fill: none;
-    stroke: black;
-	stroke-width: 1;
-    shape-rendering: crispEdges;
+  fill: none;
+  stroke: black;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 }
+
 .barsForTooltip {
-    fill: ffffff;
-    fill-opacity: 0;
+  fill: ffffff;
+  fill-opacity: 0;
 }
 
-.bar.main{
-	fill: #789aa1;
+.bar.main {
+  fill: #789aa1;
 }
 
-.bar.alt{
-	fill: #304345;
+.bar.alt {
+  fill: #304345;
 }
 
 .alm-row {
-    margin-bottom: 1em;
+  margin-bottom: 0.5em;
+}
+
+.alm-category-row-heading {
+  font-size: 1.2em;
 }
 
 .alm-category-row-info {
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	border: none;
-	background-color: transparent;
-    position: relative;
-    top: -5px;
-    left: 2px;
-    margin-top: 5px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  top: -5px;
+  left: 2px;
+  margin-top: 5px;
 }
 
+/* the metrics box, including name & count */
 .alm-count-label {
-	width: 100px;
-    float: left;
-    margin-top: .5em;
-	margin-right: 2em;
-	padding: 0.8em;
-	text-align: center;
-    background: #dfeffc;
-    font-size: .75em;
-    color: #555;
-    border: 1px solid #c5dbec;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+  font-size: 0.8rem;
+  width: 20%;
+  float: left;
+  margin-top: .5em;
+  margin-right: 1em;
+  padding: 0.5em;
+  text-align: center;
+  border: 1px solid #c5dbec;
+  background: #c8d7d7;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  color: #304345;
 }
 
 .alm-count-label a {
-    color: #2e6e9e;
+  text-decoration: none;
 }
 
 .alm-count-label a:hover {
-	background-color: transparent !important;
-	color: #555555 !important;
-}
-
-.alm-count-label a {
-    text-decoration: none;
+  background-color: transparent !important;
+  color: #555555 !important;
 }
 
 .alm-count-label img {
-	padding-right:0.5em;
+  padding-right: 0.5em;
 }
 
+/* the metric value itself. Within alm-count-label */
 .alm-count {
-	font-size: 1.25em;
-	padding-bottom: 0.4em;
-	padding-top: 0.4em;
-	font-weight: bold;
-	vertical-align: middle;
+  font-size: 1.3em;
+  padding-bottom: 0.4em;
+  padding-top: 0.4em;
+  font-weight: bold;
+  vertical-align: middle;
 }
 
 .alm-control {
-	text-decoration: underline;
-	color: blue;
+  text-decoration: underline;
+  color: blue;
 }
 
 .alm-control.active {
-	text-decoration: none;
-	color: blue;
+  text-decoration: none;
 }
 
 .alm-control.disabled {
-	cursor: default;
-	text-decoration: none;
-	color: grey;
+  cursor: default;
+  text-decoration: none;
+  color: grey;
 }
 
-.alm-control.disabled:hover {
-	background-color: transparent;
+.alm-control:hover {
+  background-color: transparent;
 }
 
 .label-img {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 #built-with {
-    float: right;
-    font-size: .75em;
+  float: right;
+  font-size: .75em;
 }
